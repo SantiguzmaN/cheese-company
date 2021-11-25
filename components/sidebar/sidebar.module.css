@@ -3,6 +3,12 @@
   width: 100px;
 }
 
+.title {
+  display: flex;
+  margin: 5% 15%;
+  justify-content: center;
+}
+
 .sidebarFooter {
   position: absolute;
   bottom: 20px;

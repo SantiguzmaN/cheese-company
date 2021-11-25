@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebarContainer}>
       <ProSidebar collapsed={collapsed}>
-        <SidebarHeader className="mx-1 my-3 d-flex justify-content-center">
+        <SidebarHeader className={styles.title}>
           <h4>
             <span className="me-2" hidden={collapsed}>
               Cheese-Company
