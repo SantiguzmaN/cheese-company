@@ -1,0 +1,14 @@
+{
+  "home": "Inicio",
+  "expenses": "Gastos",
+  "suppliers": "Proveedores",
+  "supplier": "Proveedor",
+  "clients": "Clientes",
+  "logout": "Cerrar Sesión",
+  "hide": "Ocultar",
+  "loading_info": "Cargando Información",
+  "date": "Fecha" ,
+  "e_type": "Tipo de Gasto",
+  "price": "Precio"
+
+}

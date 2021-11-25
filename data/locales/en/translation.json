@@ -1,0 +1,13 @@
+{
+  "home": "Home",
+  "expenses": "Expenses",
+  "suppliers": "Suppliers",
+  "supplier": "Suppliers",
+  "clients": "Clients",
+  "logout": "Log Out",
+  "hide": "Hide",
+  "loading_info": "Loading Info",
+  "date": "Date" ,
+  "e_type": "Expense Type",
+  "price": "Price"
+}

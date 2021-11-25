@@ -5,6 +5,7 @@ import { FaUsers, FaCheese, FaHome, FaArrowLeft, FaArrowRight } from 'react-icon
 import { MdProductionQuantityLimits } from 'react-icons/md';
 import { RiUserStarFill } from 'react-icons/ri';
 import { FiLogOut } from 'react-icons/fi';
+import i18n from '../../i18n';
 import 'react-pro-sidebar/dist/css/styles.css';
 import styles from './sidebar.module.css';
 
@@ -30,28 +31,28 @@ const Sidebar = () => {
         <Menu iconShape="square">
           <MenuItem icon={<FaHome />}>
           <Link href="/" >
-            <a>Home</a>
+            <a>{i18n.t('home')}</a>
           </Link>
           </MenuItem>
           <MenuItem icon={<MdProductionQuantityLimits />}>
           <Link href="/expenses/expenses">
-            <a>Expenses</a>
+            <a>{i18n.t('expenses')}</a>
           </Link>
           </MenuItem>
           <MenuItem icon={<RiUserStarFill />}>
-            <span>Suppliers</span>
+            <span>{i18n.t('suppliers')}</span>
           </MenuItem>
           <MenuItem icon={<FaUsers />}>
-            <span>Clients</span>
+            <span>{i18n.t('clients')}</span>
           </MenuItem>
         </Menu>
         <SidebarFooter className={styles.sidebarFooter}>
           <Menu iconShape="square">
             <MenuItem icon={<FiLogOut />}>
-              <span hidden={collapsed}>Logout</span>
+              <span hidden={collapsed}>{i18n.t('logout')}</span>
             </MenuItem>
             <MenuItem icon={collapseIcon} onClick={() => setCollapsed(!collapsed)}>
-              <span hidden={collapsed}>Hide</span>
+              <span hidden={collapsed}>{i18n.t('hide')}</span>
             </MenuItem>
           </Menu>
         </SidebarFooter>
