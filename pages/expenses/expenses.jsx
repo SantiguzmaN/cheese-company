@@ -29,6 +29,7 @@ const Expenses = () => {
     }, 2000);
   }, [info]);
 
+
   return (
     <div className={styles.container}>
       <div className={!hideSidebar ? styles.sidebar : styles.sidebarCollapsed}>

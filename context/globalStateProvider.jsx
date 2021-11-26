@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import { globalStateReducer } from '../reducers/globalStateReducer';
+import { globalStateReducer } from './reducers/globalStateReducer';
 import PropTypes from 'prop-types';
 
 const GlobalStateContext = createContext({});

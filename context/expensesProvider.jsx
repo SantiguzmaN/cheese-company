@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import { expensesReducer } from '../reducers/expensesReducer';
+import { expensesReducer } from './reducers/expensesReducer';
 import PropTypes from 'prop-types';
 
 const ExpensesStateContext = createContext({});
