@@ -5,8 +5,12 @@
 
 .title {
   display: flex;
-  margin: 5% 15%;
+  margin-right: 5px;
   justify-content: center;
+}
+
+.text {
+  margin-right: 5px;
 }
 
 .sidebarFooter {

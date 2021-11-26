@@ -8,13 +8,22 @@ import { FiLogOut } from 'react-icons/fi';
 import i18n from '../../i18n';
 import 'react-pro-sidebar/dist/css/styles.css';
 import styles from './sidebar.module.css';
+import { useGlobalState, useGlobalDispatch } from '../../context/globalStateProvider';
 
 const Sidebar = () => {
+  const globalDispatch = useGlobalDispatch();
+  const { hideSidebar } = useGlobalState();
   const [collapsed, setCollapsed] = useState(false);
   const [collapseIcon, setCollapseIcon] = useState(<FaArrowLeft />);
 
+  // const isCollapsed = () => {
+  //   setCollapsed(!collapsed);
+  //   globalDispatch({ type: 'PRESCRIPCIONES', payload: {hideSidebar: collapsed}});
+  // };
+
   useEffect(() => {
     collapsed ? setCollapseIcon(<FaArrowRight />) : setCollapseIcon(<FaArrowLeft />);
+    globalDispatch({ type: 'PRESCRIPCIONES', payload: {hideSidebar: !collapsed}});
   }, [collapsed]);
 
   return (
@@ -22,7 +31,7 @@ const Sidebar = () => {
       <ProSidebar collapsed={collapsed}>
         <SidebarHeader className={styles.title}>
           <h4>
-            <span className="me-2" hidden={collapsed}>
+            <span className={styles.text} hidden={collapsed}>
               Cheese-Company
             </span>
             <FaCheese />

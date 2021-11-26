@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar {
+  display: flex;
+  width: 350px;
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+}
