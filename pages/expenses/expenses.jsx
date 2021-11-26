@@ -17,7 +17,6 @@ const Expenses = () => {
     listExpenses().then(data => {
       if (data) {
         data.forEach(data => {
-          console.log('data: ', data);
           info.push(data.attributes);
         });
       }
@@ -29,10 +28,6 @@ const Expenses = () => {
       setView(<Table info={info} />);
     }, 2000);
   }, [info]);
-
-  useEffect(() => {
-    console.log('oeee:', hideSidebar)
-  }, [hideSidebar]);
 
   return (
     <div className={styles.container}>
