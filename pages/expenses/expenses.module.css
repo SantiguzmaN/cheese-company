@@ -5,7 +5,12 @@
 
 .sidebar {
   display: flex;
-  width: 350px;
+  width: 400px;
+}
+
+.sidebarCollapsed {
+  display: flex;
+  width: 100px;
 }
 
 .layout {

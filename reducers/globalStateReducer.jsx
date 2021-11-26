@@ -3,7 +3,7 @@ export const globalStateReducer = (state, action) => {
     case 'HIDE_SIDEBAR':
       return {
         ...state,
-        hideSidebar: action.payload.nit
+        hideSidebar: action.payload.hideSidebar
       };
     default:
       return state;

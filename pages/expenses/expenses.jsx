@@ -36,7 +36,7 @@ const Expenses = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.sidebar}>
+      <div className={!hideSidebar ? styles.sidebar : styles.sidebarCollapsed}>
         <Sidebar />
       </div>
       <div className={styles.layout}>
