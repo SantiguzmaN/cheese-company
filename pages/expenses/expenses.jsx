@@ -7,7 +7,9 @@ const Expenses = () => {
   const text = <h3>{i18n.t('loading_info')}</h3>;
   const [view, setView] = useState(text);
   const [info] = useState([]);
-  const [atributes] = useState([]);
+  const [attributes, setAttributes] = useState([]);
+  const [columns, setColumns] = useState([]);
+
 
             // data.forEach(element => {
           //   console.log(element.date.key)
@@ -29,25 +31,43 @@ const Expenses = () => {
           // })
 
   const findExpenses = () => {
-    console.log('entro al find');
+    console.log('se ejecutoel find');
     listExpenses().then(data => {
-      if (data[0]) {
-        data.forEach(data => {
-          console.log(data);
-          atributes = (...atributes, data.attributes);
-        });
-      } else {
-        findExpenses();
-      }
+      console.log('llego como respuesta: ', data);
+      const att = data.map(data => data.attributes);
+      setAttributes(att);
     });
   };
 
+
   useEffect(() => {
+    console.log('att');
+    if (attributes[0]) {
+      console.log('atributos: ', attributes);
+      const temp = [];
+      attributes.forEach((attribute) => {
+        for (var key in attribute) {
+          temp.push({
+            name: `${i18n.t(key)}`,
+            selector: row => row.date,
+            sortable: true
+          })
+        }
+      })
+      setColumns(temp);
+    }
+  }, [attributes]);
+
+  useEffect(() => {
+    if (columns[0]) console.log('columnas', columns);
+  }, [columns]);
+
+  useEffect(() => {
+    console.log('va a llamar al find');
     findExpenses();
   }, []);
 
   useEffect(() => {
-
     setView(<Table info={info} />);
   }, [info]);
 

@@ -1,29 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ExpensesProvider from '../context/expensesProvider';
-import Sidebar from "../components/sidebar/sidebar";
 import GlobalStateProvider, { useGlobalState } from '../context/globalStateProvider';
-import '../styles/globals.css';
+import App from '../components/app/app';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   const { hideSidebar } = useGlobalState();
-  useEffect(() => {
-    console.log(hideSidebar, 'hide???')
-  }, [hideSidebar]);
 
   return (
     <GlobalStateProvider>
       <ExpensesProvider>
-        <div className="container">
-          <div className={!hideSidebar ? "sidebar" : "sidebarCollapsed"}>
-            <Sidebar />
-          </div>
-          <div className="layout">
-            <Component {...pageProps} />
-          </div>
-        </div>
+        <App Component={Component} pageProps={pageProps} />
       </ExpensesProvider>
     </GlobalStateProvider>
   );
 }
 
-export default MyApp
+export default MyApp;
