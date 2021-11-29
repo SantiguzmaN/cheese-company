@@ -2,14 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { listExpenses } from '../../actions/expensesActions';
 import Table from '../../components/dataTable/dataTable';
 import i18n from '../../i18n';
-import styles from './expenses.module.css';
-import Sidebar from "../../components/sidebar/sidebar";
-import { useGlobalState, useGlobalDispatch } from '../../context/globalStateProvider';
 
 const Expenses = () => {
   const text = <h3>{i18n.t('loading_info')}</h3>;
-  const globalDispatch = useGlobalDispatch();
-  const { hideSidebar } = useGlobalState();
   const [view, setView] = useState(text);
   const [info] = useState([]);
 
@@ -31,13 +26,8 @@ const Expenses = () => {
 
 
   return (
-    <div className={styles.container}>
-      <div className={!hideSidebar ? styles.sidebar : styles.sidebarCollapsed}>
-        <Sidebar />
-      </div>
-      <div className={styles.layout}>
-        {view}
-      </div>
+    <div >
+      {view}
     </div>
   );
 };

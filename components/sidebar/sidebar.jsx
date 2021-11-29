@@ -7,7 +7,7 @@ import { RiUserStarFill } from 'react-icons/ri';
 import { FiLogOut } from 'react-icons/fi';
 import i18n from '../../i18n';
 import 'react-pro-sidebar/dist/css/styles.css';
-import styles from './sidebar.module.css';
+import styles from './sidebar.module.scss';
 import { useGlobalDispatch } from '../../context/globalStateProvider';
 
 const Sidebar = () => {
