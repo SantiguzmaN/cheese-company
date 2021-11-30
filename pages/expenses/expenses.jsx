@@ -9,37 +9,29 @@ const Expenses = () => {
   const [attributes, setAttributes] = useState([]);
   const [columns, setColumns] = useState([]);
 
-  const findExpenses = () => {
-    listExpenses().then(data => {
-      const att = data.map(data => data.attributes);
-      setAttributes(att);
-    });
-  };
-
   useEffect(() => {
     if (attributes[0]) {
       const temp = [];
       for (var key in attributes[0]) {
         temp.push({
           name: i18n.t(`${key}`),
-          selector: row => {
-            row.key = key;
-            return row.key;
-          },
+          selector: row => row[key],
           sortable: true
-        })
-      }
+        });
+      };
       setColumns(temp);
     }
   }, [attributes]);
 
   useEffect(() => {
-    console.log('attr: ', attributes);
     if (columns[0]) setView(<Table columns={columns} attributes={attributes} />);
   }, [columns]);
 
   useEffect(() => {
-    findExpenses();
+    listExpenses().then(data => {
+      const att = data.map(data => data.attributes);
+      setAttributes(att);
+    });
   }, []);
 
   return (

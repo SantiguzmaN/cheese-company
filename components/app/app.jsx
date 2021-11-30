@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Sidebar from "../sidebar/sidebar";
 import { useGlobalState } from '../../context/globalStateProvider';
 import styles from './app.module.scss';
