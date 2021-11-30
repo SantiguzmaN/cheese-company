@@ -18,7 +18,7 @@ const Expenses = () => {
           selector: row => row[key],
           sortable: true
         });
-      };
+      }
       setColumns(temp);
     }
   }, [attributes]);
