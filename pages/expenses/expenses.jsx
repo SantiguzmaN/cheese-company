@@ -20,10 +20,13 @@ const Expenses = () => {
     if (attributes[0]) {
       const temp = [];
       for (var key in attributes[0]) {
-        console.log('key', key);
         temp.push({
           name: i18n.t(`${key}`),
-          selector: row => row.key,
+          selector: row => {
+            row.key = key
+            console.log(row);
+            return row.key
+          },
           sortable: true
         })
       }
@@ -33,7 +36,6 @@ const Expenses = () => {
 
   useEffect(() => {
     if (columns[0]) setView(<Table columns={columns} attributes={attributes} />);
-    console.log(attributes);
   }, [columns]);
 
   useEffect(() => {
