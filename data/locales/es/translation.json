@@ -1,4 +1,5 @@
 {
+  "id": "Identificacion",
   "home": "Inicio",
   "expenses": "Gastos",
   "suppliers": "Proveedores",
@@ -8,7 +9,9 @@
   "hide": "Ocultar",
   "loading_info": "Cargando Información",
   "date": "Fecha" ,
-  "e_type": "Tipo de Gasto",
-  "price": "Precio"
+  "expense_type": "Tipo de Gasto",
+  "price": "Precio",
+  "supplier_id": "Identificación del proovedor",
+  "expense_type_id": "Identificación del tipo de Gasto"
 
 }

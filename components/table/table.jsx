@@ -3,17 +3,10 @@ import i18n from '../../i18n';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 
-const Table = ({ info }) => {
-  // console.log('llego esta info', info);
+const Table = ({ columns, attributes }) => {
+  console.log('llego esta info', columns, attributes);
   const paginationOptions = [10, 20, 30, 40, 50, 100];
-  const dataTable = info.map(element => {
-    return {
-      date: element.date,
-      etype: element.expense_type,
-      price: element.price,
-      supplier: element.supplier
-    };
-  });
+
 
   const customStyles = {
     rows: {
@@ -35,35 +28,12 @@ const Table = ({ info }) => {
     }
   };
 
-  const columns = [
-    {
-      name: `${i18n.t('date')}`,
-      selector: row => row.date,
-      sortable: true
-    },
-    {
-      name: `${i18n.t('e_type')}`,
-      selector: row => row.etype,
-      sortable: true
-    },
-    {
-      name: `${i18n.t('price')}`,
-      selector: row => row.price,
-      sortable: true
-    },
-    {
-      name: `${i18n.t('supplier')}`,
-      selector: row => row.supplier,
-      sortable: true
-    }
-  ];
-
   return (
     <div className="views-container">
-      {dataTable ? (
+      {attributes ? (
         <DataTable
           columns={columns}
-          data={dataTable}
+          data={attributes}
           pagination
           paginationPerPage="10"
           paginationRowsPerPageOptions={paginationOptions}

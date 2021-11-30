@@ -1,4 +1,5 @@
 {
+  "id": "Id",
   "home": "Home",
   "expenses": "Expenses",
   "suppliers": "Suppliers",
@@ -8,6 +9,8 @@
   "hide": "Hide",
   "loading_info": "Loading Info",
   "date": "Date" ,
-  "e_type": "Expense Type",
-  "price": "Price"
+  "expense_type": "Expense Type",
+  "price": "Price",
+  "supplier_id": "Supplier Id",
+  "expense_type_id": "Expense Type Id"
 }
