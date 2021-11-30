@@ -5,9 +5,6 @@ import styles from './app.module.scss';
 
 function App({ Component, pageProps }) {
   const { hideSidebar } = useGlobalState();
-  useEffect(() => {
-    console.log(hideSidebar, 'hide???')
-  }, [hideSidebar]);
 
   return (
     <div className={styles.container}>

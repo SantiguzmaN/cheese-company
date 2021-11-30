@@ -23,9 +23,8 @@ const Expenses = () => {
         temp.push({
           name: i18n.t(`${key}`),
           selector: row => {
-            row.key = key
-            console.log(row);
-            return row.key
+            row.key = key;
+            return row.key;
           },
           sortable: true
         })
@@ -35,6 +34,7 @@ const Expenses = () => {
   }, [attributes]);
 
   useEffect(() => {
+    console.log('attr: ', attributes);
     if (columns[0]) setView(<Table columns={columns} attributes={attributes} />);
   }, [columns]);
 
