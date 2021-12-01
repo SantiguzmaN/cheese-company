@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import { globalStateReducer } from './reducers/globalStateReducer';
+import { globalReducer } from './globalReducer';
 import PropTypes from 'prop-types';
 
 const GlobalStateContext = createContext({});
@@ -24,7 +24,7 @@ export const useGlobalDispatch = () => {
 };
 
 const GlobalStateProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(globalStateReducer, {});
+  const [state, dispatch] = React.useReducer(globalReducer, {});
   const [stateValue, dispatchValue] = useMemo(() => [state, dispatch], [state]);
 
   return (

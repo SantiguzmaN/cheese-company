@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 
-const Table = ({ columns, attributes }) => {
+const Table = ({ columns, data }) => {
   const paginationOptions = [10, 20, 30, 40, 50, 100];
   const customStyles = {
     rows: {
@@ -27,7 +27,7 @@ const Table = ({ columns, attributes }) => {
   return (
     <DataTable
       columns={columns}
-      data={attributes}
+      data={data}
       pagination
       paginationPerPage="10"
       paginationRowsPerPageOptions={paginationOptions}
@@ -37,7 +37,7 @@ const Table = ({ columns, attributes }) => {
 };
 
 Table.propTypes = {
-  attributes: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired
 };
 

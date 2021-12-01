@@ -6,39 +6,38 @@ import i18n from '../../i18n';
 const Expenses = () => {
   const text = <h3>{i18n.t('loading_info')}</h3>;
   const [view, setView] = useState(text);
-  const [attributes, setAttributes] = useState([]);
+  const [expenses, setExpenses] = useState([]);
   const [columns, setColumns] = useState([]);
 
   useEffect(() => {
-    if (attributes[0]) {
-      const temp = [];
-      for (var key in attributes[0]) {
-        temp.push({
+    if (expenses[0]) {
+      const columnsObj = Object.keys(expenses[0]).map(key => {
+        return {
           name: i18n.t(`${key}`),
           selector: row => row[key],
           sortable: true
-        });
-      }
-      setColumns(temp);
+        };
+      });
+      setColumns(columnsObj);
     }
-  }, [attributes]);
+  }, [expenses]);
 
   useEffect(() => {
-    if (columns[0]) setView(<Table columns={columns} attributes={attributes} />);
+    if (columns[0])
+      setView(
+        <div>
+          <Table columns={columns} data={expenses} />
+        </div>
+      );
   }, [columns]);
 
   useEffect(() => {
     listExpenses().then(data => {
-      const att = data.map(data => data.attributes);
-      setAttributes(att);
+      setExpenses(data.map(data => data.attributes));
     });
   }, []);
 
-  return (
-    <div >
-      {view}
-    </div>
-  );
+  return view;
 };
 
 export default Expenses;

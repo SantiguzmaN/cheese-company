@@ -1,4 +1,4 @@
-import { http } from '../data/http/http';
+import { http } from '../utils/http';
 
 export function listExpenses() {
   return http({

@@ -8,7 +8,7 @@ import { FiLogOut } from 'react-icons/fi';
 import i18n from '../../i18n';
 import 'react-pro-sidebar/dist/css/styles.css';
 import styles from './sidebar.module.scss';
-import { useGlobalDispatch } from '../../context/globalStateProvider';
+import { useGlobalDispatch } from '../../context/global/globalProvider';
 
 const Sidebar = () => {
   const globalDispatch = useGlobalDispatch();
@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     collapsed ? setCollapseIcon(<FaArrowRight />) : setCollapseIcon(<FaArrowLeft />);
-    globalDispatch({ type: 'HIDE_SIDEBAR', payload: {hideSidebar: collapsed }});
+    globalDispatch({ type: 'HIDE_SIDEBAR', payload: { hideSidebar: collapsed } });
   }, [collapsed]);
 
   return (
@@ -33,14 +33,14 @@ const Sidebar = () => {
         </SidebarHeader>
         <Menu iconShape="square">
           <MenuItem icon={<FaHome />}>
-          <Link href="/" >
-            <a>{i18n.t('home')}</a>
-          </Link>
+            <Link href="/">
+              <a>{i18n.t('home')}</a>
+            </Link>
           </MenuItem>
           <MenuItem icon={<MdProductionQuantityLimits />}>
-          <Link href="/expenses/expenses">
-            <a>{i18n.t('expenses')}</a>
-          </Link>
+            <Link href="/expenses">
+              <a>{i18n.t('expenses')}</a>
+            </Link>
           </MenuItem>
           <MenuItem icon={<RiUserStarFill />}>
             <span>{i18n.t('suppliers')}</span>

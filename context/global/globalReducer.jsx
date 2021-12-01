@@ -1,4 +1,4 @@
-export const globalStateReducer = (state, action) => {
+export const globalReducer = (state, action) => {
   switch (action.type) {
     case 'HIDE_SIDEBAR':
       return {
