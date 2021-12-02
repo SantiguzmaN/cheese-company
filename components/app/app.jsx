@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../sidebar/sidebar';
-import Spinner from './spinner/spinner';
+import Spinner from '../spinner/spinner';
 import { useGlobalState } from '../../context/global/globalProvider';
 import styles from './app.module.scss';
 
