@@ -1,4 +1,4 @@
-import React, { createContext,  useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import { loadingReducer } from './loadingReducer';
 
 const initialState = { loadingCount: 0 };
