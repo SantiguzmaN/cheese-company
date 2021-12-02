@@ -3,7 +3,13 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['plugin:prettier/recommended', 'eslint:recommended', 'plugin:react/recommended'],
+  extends: [
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'next',
+    'plugin:@next/next/recommended'
+  ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module',
