@@ -5,13 +5,27 @@ import DataTable from 'react-data-table-component';
 const Table = ({ columns, data }) => {
   const paginationOptions = [10, 20, 30, 40, 50, 100];
   const customStyles = {
-    rows: {
+    headRow: {
       style: {
-        minHeight: '72px' // override the row height
+        border: 'none'
+      }
+    },
+    rows: {
+      highlightOnHoverStyle: {
+        backgroundColor: 'rgb(230, 244, 244)',
+        borderBottomColor: '#FFFFFF',
+        borderRadius: '25px',
+        outline: '1px solid #FFFFFF'
+      },
+      style: {
+        minHeight: '72px', // override the row height
+        textAlign: 'center'
       }
     },
     headCells: {
       style: {
+        color: '#202124',
+        fontSize: '14px',
         paddingLeft: '8px', // override the cell padding for head cells
         paddingRight: '8px'
       }
@@ -24,6 +38,17 @@ const Table = ({ columns, data }) => {
     }
   };
 
+  const conditionalRowStyles = [
+    {
+      when: row => row.id % 2 == 0,
+      style: { backgroundColor: '#9AC1E5' }
+    },
+    {
+      when: row => row.id % 2 != 0,
+      style: { backgroundColor: '#C0CFDD' }
+    }
+  ];
+
   return (
     <DataTable
       columns={columns}
@@ -32,6 +57,8 @@ const Table = ({ columns, data }) => {
       paginationPerPage="10"
       paginationRowsPerPageOptions={paginationOptions}
       customStyles={customStyles}
+      highlightOnHover
+      conditionalRowStyles={conditionalRowStyles}
     />
   );
 };

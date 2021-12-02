@@ -15,7 +15,9 @@ const Expenses = () => {
         return {
           name: i18n.t(`${key}`),
           selector: row => row[key],
-          sortable: true
+          sortable: true,
+          style: {
+            textAlign: 'center'}
         };
       });
       setColumns(columnsObj);
