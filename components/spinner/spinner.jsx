@@ -1,10 +1,10 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import { useLoadingState } from '../../store/loadingProvider';
+import { useLoadingState } from '../../context/loading/loadingProvider';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import '../../styles/spinner.css';
 
-const Spinner: React.FC = () => {
+const Spinner = () => {
   const { loadingCount } = useLoadingState();
   return (
     <>
