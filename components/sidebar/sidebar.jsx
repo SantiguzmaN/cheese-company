@@ -9,6 +9,7 @@ import i18n from '../../i18n';
 import 'react-pro-sidebar/dist/css/styles.css';
 import styles from './sidebar.module.scss';
 import { useGlobalDispatch } from '../../context/global/globalProvider';
+import { toggleSidebar } from '../../context/dispatch/globalDispatch';
 
 const Sidebar = () => {
   const globalDispatch = useGlobalDispatch();
@@ -17,7 +18,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     collapsed ? setCollapseIcon(<FaArrowRight />) : setCollapseIcon(<FaArrowLeft />);
-    globalDispatch({ type: 'HIDE_SIDEBAR', payload: { hideSidebar: collapsed } });
+    toggleSidebar(globalDispatch, collapsed);
   }, [collapsed]);
 
   return (

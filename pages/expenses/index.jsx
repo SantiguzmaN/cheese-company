@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { listExpenses } from '../../actions/expensesActions';
 import Table from '../../components/table/table';
 import i18n from '../../i18n';
+import { useLoadingDispatch } from '../../context/loading/loadingProvider';
+import { showLoading, closeLoading } from '../../context/dispatch/globalDispatch';
 
 const Expenses = () => {
+  const loadingDispatch = useLoadingDispatch();
   const text = <h3>{i18n.t('loading_info')}</h3>;
   const [view, setView] = useState(text);
   const [expenses, setExpenses] = useState([]);
@@ -23,15 +26,18 @@ const Expenses = () => {
   }, [expenses]);
 
   useEffect(() => {
-    if (columns[0])
+    if (columns[0]) {
+      closeLoading(loadingDispatch);
       setView(
         <div>
           <Table columns={columns} data={expenses} />
         </div>
       );
+    }
   }, [columns]);
 
   useEffect(() => {
+    showLoading(loadingDispatch);
     listExpenses().then(data => {
       setExpenses(data.map(data => data.attributes));
     });
