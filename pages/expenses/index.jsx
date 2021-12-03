@@ -3,7 +3,7 @@ import { listExpenses } from '../../actions/expensesActions';
 import Table from '../../components/table/table';
 import i18n from '../../i18n';
 import { useLoadingDispatch } from '../../context/loading/loadingProvider';
-import { activateSpinner, disableSpinner } from '../../actions/dispatch/loadingDispatch';
+import { showLoading, closeLoading } from '../../context/dispatch/globalDispatch';
 
 const Expenses = () => {
   const loadingDispatch = useLoadingDispatch();
@@ -27,7 +27,7 @@ const Expenses = () => {
 
   useEffect(() => {
     if (columns[0]) {
-      disableSpinner(loadingDispatch);
+      closeLoading(loadingDispatch);
       setView(
         <div>
           <Table columns={columns} data={expenses} />
@@ -37,7 +37,7 @@ const Expenses = () => {
   }, [columns]);
 
   useEffect(() => {
-    activateSpinner(loadingDispatch);
+    showLoading(loadingDispatch);
     listExpenses().then(data => {
       setExpenses(data.map(data => data.attributes));
     });
