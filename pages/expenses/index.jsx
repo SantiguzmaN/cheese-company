@@ -3,7 +3,7 @@ import { listExpenses } from '../../actions/expensesActions';
 import Table from '../../components/table/table';
 import i18n from '../../i18n';
 import { useLoadingDispatch } from '../../context/loading/loadingProvider';
-import { showLoading, closeLoading } from '../../context/dispatch/globalDispatch';
+import { showLoading, closeLoading } from '../../context/global/globalDispatch';
 
 const Expenses = () => {
   const loadingDispatch = useLoadingDispatch();
