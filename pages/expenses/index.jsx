@@ -3,7 +3,7 @@ import { listExpenses } from '../../actions/expensesActions';
 import Table from '../../components/table/table';
 import i18n from '../../i18n';
 import { useLoadingDispatch } from '../../context/loading/loadingProvider';
-import { activateSpinner, desactiveSpinner } from '../../actions/dispatch/loadingDispatch';
+import { activateSpinner, disableSpinner } from '../../actions/dispatch/loadingDispatch';
 
 const Expenses = () => {
   const loadingDispatch = useLoadingDispatch();
@@ -27,7 +27,7 @@ const Expenses = () => {
 
   useEffect(() => {
     if (columns[0]) {
-      desactiveSpinner(loadingDispatch);
+      disableSpinner(loadingDispatch);
       setView(
         <div>
           <Table columns={columns} data={expenses} />
