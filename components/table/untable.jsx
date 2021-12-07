@@ -4,10 +4,22 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
+import moment from 'moment';
+
 
 const Table = props => {
   const { SearchBar } = Search;
-  const { name, createActionURL, modalProps, dropDownFields, dropDownOnChange, columns, data } = props;
+  const { name, columns, data } = props;
+
+  const formatData = data.map(elemento => {
+    return {
+      ...elemento,
+      date: moment(elemento.date).format('YYYY-MM-DD')
+    };
+  });
+
+  console.log(formatData);
+
   const sizePerPageRenderer = ({ options, currSizePerPage, onSizePerPageChange }) => (
     <div className="btn-group" role="group">
       {options.map(option => {
@@ -43,9 +55,10 @@ const Table = props => {
   };
 
   return (
-    <ToolkitProvider keyField={props.keyField} data={data} columns={columns} search>
+    <ToolkitProvider keyField="id" data={formatData} columns={columns} search>
       {props => (
         <>
+          <h4 className="pl-2">{name}</h4>
           <SearchBar {...props.searchProps} />
           <BootstrapTable pagination={paginationFactory(paginationOptions)} {...props.baseProps} />
         </>

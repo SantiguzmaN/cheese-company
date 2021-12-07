@@ -30,7 +30,7 @@ const Expenses = () => {
       closeLoading(loadingDispatch);
       setView(
         <div>
-          <Table columns={columns} data={expenses} />
+          <Table columns={columns} data={expenses} name={i18n.t('expenses')} />
         </div>
       );
     }
