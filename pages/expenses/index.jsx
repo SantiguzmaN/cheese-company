@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { listExpenses } from '../../actions/expensesActions';
-import Table from '../../components/table/table';
+// import Table from '../../components/table/table';
+import Table from '../../components/table/untable';
 import i18n from '../../i18n';
 import { useLoadingDispatch } from '../../context/loading/loadingProvider';
 import { showLoading, closeLoading } from '../../context/global/globalDispatch';
@@ -16,9 +17,8 @@ const Expenses = () => {
     if (expenses[0]) {
       const columnsObj = Object.keys(expenses[0]).map(key => {
         return {
-          name: i18n.t(`${key}`),
-          selector: row => row[key],
-          sortable: true
+          text: i18n.t(`${key}`),
+          dataField: key
         };
       });
       setColumns(columnsObj);
