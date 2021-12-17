@@ -28,7 +28,7 @@ const Table = props => {
             key={option.text}
             type="button"
             onClick={() => onSizePerPageChange(option.page)}
-            className={`btn ${isSelect ? 'btn-primary' : 'page-link'}`}
+            className={`btn ${isSelect ? 'btn-dark' : 'btn-secondary'}`}
           >
             {option.text}
           </button>
@@ -39,6 +39,7 @@ const Table = props => {
 
   const paginationOptions = {
     sizePerPageRenderer,
+    className: 'btn-dark',
     hidePageListOnlyOnePage: true,
     showTotal: true,
     hideSizePerPage: data.length <= 5,
@@ -54,7 +55,18 @@ const Table = props => {
   };
 
   return (
-    <ToolkitProvider keyField="id" data={formatData} columns={columns} search>
+    <ToolkitProvider
+      keyField="id"
+      data={formatData}
+      columns={columns}
+      search
+      exportCSV={{
+        fileName: `${name}.csv`,
+        separator: '|',
+        ignoreHeader: true,
+        noAutoBOM: true
+      }}
+    >
       {props => (
         <>
           <h4 className="pl-2">{name}</h4>

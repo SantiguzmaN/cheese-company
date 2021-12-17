@@ -13,7 +13,9 @@ function App({ Component, pageProps }) {
       <div className={!hideSidebar ? styles.sidebar : styles.sidebarCollapsed}>
         <Sidebar />
       </div>
-      <Component {...pageProps} />
+      <div className={!hideSidebar ? styles.board : styles.boardCollapsed}>
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 }
