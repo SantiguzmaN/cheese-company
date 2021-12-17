@@ -1,14 +1,15 @@
 import React /**useState, useEffect, useCallback  , useCallback */ from 'react';
+import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolkit';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import moment from 'moment';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
-import moment from 'moment';
 
 const Table = props => {
   const { SearchBar } = Search;
   const { name, columns, data } = props;
+  const { ExportCSVButton } = CSVExport;
 
   const formatData = data.map(elemento => {
     return {
@@ -39,7 +40,7 @@ const Table = props => {
 
   const paginationOptions = {
     sizePerPageRenderer,
-    className: 'btn-dark',
+    class: 'btn-dark',
     hidePageListOnlyOnePage: true,
     showTotal: true,
     hideSizePerPage: data.length <= 5,
@@ -71,6 +72,7 @@ const Table = props => {
         <>
           <h4 className="pl-2">{name}</h4>
           <SearchBar {...props.searchProps} />
+          <ExportCSVButton {...props.csvProps}>Export CSV!!</ExportCSVButton>
           <BootstrapTable pagination={paginationFactory(paginationOptions)} {...props.baseProps} />
         </>
       )}
