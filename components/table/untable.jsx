@@ -8,8 +8,10 @@ import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.m
 
 const Table = props => {
   const { SearchBar } = Search;
-  const { name, columns, data } = props;
   const { ExportCSVButton } = CSVExport;
+  const { name, columns, data } = props;
+  const fecha = Date.now();
+  const fechaHoy = moment(fecha).format('YYYY-MM-DD');
 
   const formatData = data.map(elemento => {
     return {
@@ -62,7 +64,7 @@ const Table = props => {
       columns={columns}
       search
       exportCSV={{
-        fileName: `${name}.csv`,
+        fileName: `${name} de ${fechaHoy}.csv`,
         separator: '|',
         ignoreHeader: true,
         noAutoBOM: true
